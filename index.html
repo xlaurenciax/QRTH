@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GRANT ACCESS</title>
+  <style>
+    body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0b0b0b;color:#d4af37;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;}
+    .card{width:min(740px,92vw);padding:30px 22px;border:1px solid rgba(212,175,55,.35);
+      border-radius:18px;text-align:center}
+    .brand{margin:0 0 14px;font-size:14px;letter-spacing:.28em;opacity:.9}
+    .tag{display:inline-block;padding:8px 12px;border-radius:999px;border:1px solid rgba(212,175,55,.45);
+      font-size:12px;letter-spacing:.18em;opacity:.95}
+    #title{margin:18px 0 10px;font-size:18px;letter-spacing:.22em;text-transform:uppercase;opacity:.9}
+    #text{font-size:30px;line-height:1.2;font-weight:700}
+    button{margin-top:18px;padding:12px 16px;border-radius:12px;border:1px solid rgba(212,175,55,.45);
+      background:transparent;color:#d4af37;font-weight:650;letter-spacing:.06em}
+    .sub{margin-top:14px;font-size:12px;opacity:.75;letter-spacing:.14em}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="brand">GRANT ACCESS</div>
+    <span class="tag">ACCESS IS SELECTIVE.</span>
+
+    <div id="title">LOADING</div>
+    <div id="text">Loading…</div>
+
+    <button onclick="newAffirmation()" aria-label="Generate a new motivational affirmation">NEW AFFIRMATION</button>
+    <div class="sub">SCAN • READ • MOVE DIFFERENT</div>
+  </div>
+
+  <script>
+    const affirmations = [
+      { title: "BOUNDARIES", text: "Access is earned, not given." },
+      { title: "CONFIDENCE", text: "You don't chase. You choose." },
+      { title: "DISCIPLINE", text: "Discipline beats mood every time." },
+      { title: "SELF-RESPECT", text: "Consistency is the minimum." },
+      { title: "CALM", text: "Silence doesn't shake you." }
+    ];
+
+    function newAffirmation() {
+      const randomIndex = Math.floor(Math.random() * affirmations.length);
+      const item = affirmations[randomIndex];
+      document.getElementById("title").textContent = item.title;
+      document.getElementById("text").textContent = item.text;
+    }
+
+    // Random on every page load (every scan)
+    newAffirmation();
+  </script>
+</body>
+</html>
